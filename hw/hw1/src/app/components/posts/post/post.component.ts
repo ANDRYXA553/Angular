@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {PostInterface} from "../../models/postInterface";
 
 @Component({
   selector: 'app-post',
@@ -8,11 +9,10 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PostComponent implements OnInit {
 
   @Input()
-  constructor(private ) { }
+  post:PostInterface
+  constructor() { }
 
   ngOnInit(): void {
-
-
   }
 
 }
