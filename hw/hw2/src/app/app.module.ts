@@ -14,13 +14,15 @@ import {UserComponent} from './components/users/user/user.component';
     UserComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot([
-      {path: 'users', component: UsersComponent}
-    ])
+    BrowserModule, HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'users', component: UsersComponent},
+    
+      ])
 
 
   ],
-  providers: [HttpClientModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
