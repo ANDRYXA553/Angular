@@ -15,10 +15,8 @@ import {UserComponent} from './components/users/user/user.component';
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'users', component: UsersComponent},
-    
-      ])
+
+    RouterModule.forRoot([{path: 'users', component: UsersComponent}])
 
 
   ],
