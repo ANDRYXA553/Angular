@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostInterface} from "../../interfaces/postInterface";
-import {PostsFetchService} from "../services/posts-fetch.service";
+import {PostsService} from "../../services/posts.service";
 
 @Component({
   selector: 'app-posts',
@@ -10,10 +10,10 @@ import {PostsFetchService} from "../services/posts-fetch.service";
 export class PostsComponent implements OnInit {
 
    posts:PostInterface[]
-  constructor(private postsFetcher:PostsFetchService) { }
+  constructor(private postsService:PostsService) { }
 
   ngOnInit(): void {
-     this.postsFetcher.getPosts().subscribe(value => {
+     this.postsService.getPosts().subscribe(value => {
        this.posts=value
      })
   }

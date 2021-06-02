@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserInterface} from "../../../interfaces/UserInterface";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-user',
@@ -18,7 +19,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showUserDetails() {
+  showUserDetails():void{
     this.router.navigate([this.user.id], {relativeTo: this.activatedRouter, state: this.user})
   }
 }

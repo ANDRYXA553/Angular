@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UsersFetchService} from "../services/users-fetch.service";
+import {UsersService} from "../../services/users.service";
 import {UserInterface} from "../../interfaces/UserInterface";
 
 @Component({
@@ -11,11 +11,11 @@ export class UsersComponent implements OnInit {
 
   users: UserInterface[]
 
-  constructor(private fetchUsers: UsersFetchService) {
+  constructor(private usersService: UsersService) {
   }
 
   ngOnInit(): void {
-    this.fetchUsers.getUsers().subscribe(value => {
+    this.usersService.getUsers().subscribe(value => {
       this.users = value
     })
   }

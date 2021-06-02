@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserInterface} from "../../../interfaces/UserInterface";
-import {UsersFetchService} from "../../services/users-fetch.service";
+import {UsersService} from "../../../services/users.service";
 
 @Component({
   selector: 'app-user-details',
@@ -11,11 +11,10 @@ import {UsersFetchService} from "../../services/users-fetch.service";
 export class UserDetailsComponent implements OnInit {
   user: UserInterface
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private fetchUser: UsersFetchService) {
-
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private usersService: UsersService) {
     this.activatedRoute.params.subscribe(value => {
 
-      this.fetchUser.getUser(value.id).subscribe(value1 => {
+      this.usersService.getUser(value.id).subscribe(value1 => {
         this.user = value1
       })
     })

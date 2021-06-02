@@ -12,10 +12,13 @@ export class AppComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
-  showPosts() {
+  showPosts():void {
     this.router.navigate(['posts'])
   }
-  showUsers() {
+  showUsers():void {
     this.router.navigate(['users'])
+  }
+  showComments():void{
+    this.router.navigate(['comments'])
   }
 }
