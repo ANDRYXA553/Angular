@@ -1,0 +1,11 @@
+<h1>Users</h1>
+<div class="main">
+  <div>
+    <app-user *ngFor="let u of users" [user]="u" ></app-user>
+  </div>
+  <div class="details">
+    <router-outlet ></router-outlet>
+    <router-outlet name="userPosts" ></router-outlet>
+  </div>
+</div>
+

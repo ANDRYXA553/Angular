@@ -2,24 +2,25 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {UsersComponent} from './components/users/users.component';
-import {PostsComponent} from './components/posts/posts.component';
-import {PostComponent} from './components/posts/post/post.component';
-import {UserComponent} from './components/users/user/user.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
-import {PostDetailComponent} from './components/posts/post-detail/post-detail.component';
-import {UserDetailsComponent} from './components/users/user-details/user-details.component';
-import {CommnetsComponent} from './components/commnets/commnets.component';
-import {CommentComponent} from './components/commnets/comment/comment.component';
-import {CommentDetailsComponent} from './components/commnets/comment/comment-details/comment-details.component';
-import {CommentsResolveService} from "./services/comments.resolve.service";
-import {CommentResolveService} from "./services/comment.resolve.service";
+import {CommnetsComponent} from './moduls/components/commnets/commnets.component';
+import {CommentDetailsComponent} from './moduls/components/commnets/comment/comment-details/comment-details.component';
+import {CommentsResolveService} from "./moduls/components/commnets/services/comments.resolve.service";
+import {CommentResolveService} from "./moduls/components/commnets/services/comment.resolve.service";
+import { UserPostsComponent } from './moduls/components/users/components/user-posts/user-posts.component';
+import { PostsCommentsComponent } from './moduls/components/posts/components/posts-comments/posts-comments.component';
 
 
 const routes: Routes = [
-  {path: 'posts', component: PostsComponent, children: [{path: ':id', component: PostDetailComponent}]},
-  {path: 'users', component: UsersComponent, children: [{path: ':id', component: UserDetailsComponent}]},
+  {
+    path: 'posts',
+    loadChildren: () => import('./moduls/components/posts/posts-module/posts.module').then(m => m.PostsModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./moduls/components/users/user.module').then(m => m.UserModule)
+  },
   {
     path: 'comments',
     component: CommnetsComponent,
@@ -32,15 +33,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    PostsComponent,
-    PostComponent,
-    UserComponent,
-    PostDetailComponent,
-    UserDetailsComponent,
-    CommnetsComponent,
-    CommentComponent,
-    CommentDetailsComponent
+    PostsCommentsComponent,
+    // UsersComponent,
+    // PostsComponent,
+    // PostComponent,
+    // UserComponent,
+    // PostDetailComponent,
+    // UserDetailsComponent,
+    // CommnetsComponent,
+    // CommentComponent,
+    // CommentDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes)
