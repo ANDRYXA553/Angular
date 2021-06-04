@@ -10,6 +10,7 @@ import {CommentsResolveService} from "./moduls/components/commnets/services/comm
 import {CommentResolveService} from "./moduls/components/commnets/services/comment.resolve.service";
 import { UserPostsComponent } from './moduls/components/users/components/user-posts/user-posts.component';
 import { PostsCommentsComponent } from './moduls/components/posts/components/posts-comments/posts-comments.component';
+import {CommentComponent} from "./moduls/components/commnets/comment/comment.component";
 
 
 const routes: Routes = [
@@ -40,9 +41,9 @@ const routes: Routes = [
     // UserComponent,
     // PostDetailComponent,
     // UserDetailsComponent,
-    // CommnetsComponent,
-    // CommentComponent,
-    // CommentDetailsComponent
+    CommnetsComponent,
+    CommentComponent,
+    CommentDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes)

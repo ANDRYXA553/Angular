@@ -3,7 +3,7 @@ import {UserInterface} from "../../../../../interfaces/UserInterface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {PostInterface} from "../../../../../interfaces/postInterface";
-import {PostsService} from "../../../../services/posts.service";
+import {PostsService} from "../../../../services/posts/posts.service";
 
 @Component({
   selector: 'app-user',

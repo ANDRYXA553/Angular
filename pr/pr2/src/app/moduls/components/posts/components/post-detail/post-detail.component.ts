@@ -11,11 +11,18 @@ export class PostDetailComponent implements OnInit {
   @Input()
   post: PostInterface
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(value => {
+  constructor(private activatedRoute: ActivatedRoute) {
 
-      this.post = this.router.getCurrentNavigation()?.extras.state as PostInterface
+    this.activatedRoute.params.subscribe(value => {
+      this.activatedRoute.data.subscribe(value1 => {
+        this.post  = value1.data
+      })
+
     })
+    //   this.activatedRoute.params.subscribe(value => {
+    //
+    //     this.post = this.router.getCurrentNavigation()?.extras.state as PostInterface
+    //   })
   }
 
   ngOnInit(): void {

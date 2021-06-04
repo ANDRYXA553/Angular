@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {UsersService} from "../../../../services/users.service";
-import {PostsService} from "../../../../services/posts.service";
+import {UsersService} from "../../../../services/users/users.service";
+import {PostsService} from "../../../../services/posts/posts.service";
 import {PostInterface} from "../../../../../interfaces/postInterface";
 import {getLocaleFirstDayOfWeek} from "@angular/common";
+import {UserPostsService} from "../../../../services/posts/user.posts.service";
 
 @Component({
   selector: 'app-user-posts',
@@ -13,10 +14,9 @@ import {getLocaleFirstDayOfWeek} from "@angular/common";
 export class UserPostsComponent implements OnInit {
   postsDetail: PostInterface[]
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private postsService: PostsService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private postsService: UserPostsService) {
 
     this.activatedRoute.params.subscribe(value => {
-
       this.postsService.getUsersPosts(value.id).subscribe(value1 => {
         this.postsDetail=value1
       })

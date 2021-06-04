@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {PostsService} from "../../../../services/posts.service";
+import {PostsService} from "../../../../services/posts/posts.service";
 import {CommentsInterface} from "../../../../../interfaces/commentsInterface";
+import {PostCommentsService} from "../../../../services/posts/post-comments.service";
 
 @Component({
   selector: 'app-posts-comments',
@@ -11,9 +12,9 @@ import {CommentsInterface} from "../../../../../interfaces/commentsInterface";
 export class PostsCommentsComponent implements OnInit {
 
   postsComments:CommentsInterface[]
-  constructor(private activatedRoute:ActivatedRoute,private postsService:PostsService) {
-    this.activatedRoute.params.subscribe(value => {
 
+  constructor(private activatedRoute:ActivatedRoute,private postsService:PostCommentsService) {
+    this.activatedRoute.params.subscribe(value => {
       this.postsService.getCommentsById(value.id).subscribe(value1 => {
         this.postsComments=value1
       })

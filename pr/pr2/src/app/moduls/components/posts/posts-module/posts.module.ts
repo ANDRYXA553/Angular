@@ -8,7 +8,7 @@ import {PostDetailComponent} from "../components/post-detail/post-detail.compone
 
 @NgModule({
   declarations: [
-    PostsComponent,PostComponent,PostDetailComponent
+    PostsComponent,PostComponent,PostDetailComponent,PostDetailComponent
   ],
   imports: [
     CommonModule,

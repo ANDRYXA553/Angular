@@ -24,9 +24,6 @@ export class CommentsResolveService implements Resolve<CommentsInterface[]> {
     return this.httpClient.get<CommentsInterface[]>(this.url)
   }
 
-  // getPost(id: string): Observable<CommentsInterface> {
-  //   return this.httpClient.get<CommentsInterface>(this.url + '/' + id)
-  // }
 
 
 }
