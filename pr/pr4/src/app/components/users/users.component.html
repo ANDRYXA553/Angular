@@ -1,0 +1,6 @@
+<div>{{userHeader}}</div>
+<hr>
+<app-user *ngFor="let user of users" [user]="user" (lift)="usersDetails($event)"></app-user>
+<hr>
+<app-userdetails [user]="user"></app-userdetails>
+
