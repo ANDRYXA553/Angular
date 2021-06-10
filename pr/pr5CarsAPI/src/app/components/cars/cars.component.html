@@ -1,8 +1,8 @@
 <form [formGroup]="FormGroup" (ngSubmit)="showCars()">
   model<input type="text" [formControl]="modelControl" name="model"><br>
-
   <hr>
   price<input type="text" [formControl]="priceControl" name="price"><br>
+  <div *ngIf="error">{{error?.price[0]}}</div>
   <hr>
   year<input type="text" [formControl]="yearControl" name="year">
 
