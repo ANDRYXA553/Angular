@@ -11,7 +11,7 @@ import {UsersService} from "../users/services/users.service";
 export class SelectFormComponent implements OnInit {
 
   users: UserInterface[]
-
+  user: UserInterface;
 
   formGroup = new FormGroup({
     user: new FormControl('')
@@ -27,6 +27,7 @@ export class SelectFormComponent implements OnInit {
   }
 
   showUser(value: FormGroup) {
-    console.log(value.controls.user.value)
+    const user_id = value.controls.user.value;
+    this.user = this.users.find(value1 => +value1.id === +user_id) as UserInterface
   }
 }

@@ -1,8 +1,8 @@
 <form [formGroup]="formGroup" (ngSubmit)="showUser(formGroup)">
   <select [formControlName]="'user'">
-    <option [value]="user|json" *ngFor="let user of users">{{user.name}}</option>
+    <option [value]="user.id" *ngFor="let user of users">{{user.name}}</option>
 
   </select>
   <button>save</button>
-  <div>{{formGroup.controls.user.value}}</div>
+  <div *ngIf="user">{{user.id}}--{{user.name}}--{{user.email}}</div>
 </form>

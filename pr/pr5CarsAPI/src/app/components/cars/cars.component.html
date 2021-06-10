@@ -1,0 +1,18 @@
+<form [formGroup]="FormGroup" (ngSubmit)="showCars()">
+  model<input type="text" [formControl]="modelControl" name="model"><br>
+
+  <hr>
+  price<input type="text" [formControl]="priceControl" name="price"><br>
+  <hr>
+  year<input type="text" [formControl]="yearControl" name="year">
+
+  <div *ngIf="error">{{error?.year[0]}}</div>
+
+  <button [disabled]="!(FormGroup.valid)">Push</button>
+</form>
+
+
+<hr>
+<div *ngFor="let car of cars">{{car|json}}</div>
+
+
