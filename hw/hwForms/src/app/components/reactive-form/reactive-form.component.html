@@ -1,0 +1,12 @@
+<form [formGroup]="FormGroup" (ngSubmit)="save()">
+
+  <div>
+    <label>login</label>
+    <input type="text" name="login" [formControl]="loginControl">
+  </div>
+  <div>
+    <label>password</label>
+    <input type="text" name="password"[formControl]="passwordControl" >
+  </div>
+  <button [disabled]="!FormGroup.valid">save</button>
+</form>
