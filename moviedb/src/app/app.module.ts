@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {AlertModule} from "ngx-bootstrap/alert";
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MovieListComponent} from './components/movie-list/movie-list.component';
@@ -12,6 +11,8 @@ import {GenreItemComponent} from './components/genres/genre-item/genre-item.comp
 import {MovieDetailsComponent} from './components/movie-list/movie-details/movie-details.component';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import {RatingModule} from "ngx-bootstrap/rating";
+import {NgbRating, NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -33,7 +34,7 @@ const routes: Routes = [
     MainContainerComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule,
+    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule, NgbModule,NgbRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

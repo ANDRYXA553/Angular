@@ -10,7 +10,7 @@ export class MovieCardComponent implements OnInit {
   posterUrl = 'https://image.tmdb.org/t/p/original/'
   @Input()
   movieItem: MovieItemInterface
-
+  rating:number
   constructor() {
   }
 
@@ -20,6 +20,7 @@ export class MovieCardComponent implements OnInit {
       backdrop_path: `${this.posterUrl}${this.movieItem.backdrop_path}`,
       poster_path: `${this.posterUrl}${this.movieItem.poster_path}`
     }
+    this.rating = Math.round(this.movieItem.vote_average)
 
   }
 

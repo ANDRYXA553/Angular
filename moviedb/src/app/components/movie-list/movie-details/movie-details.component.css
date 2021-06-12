@@ -27,3 +27,8 @@ h4{
   margin: 10px ;
 
 }
+.rating{
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}

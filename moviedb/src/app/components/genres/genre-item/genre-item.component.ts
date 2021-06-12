@@ -19,6 +19,5 @@ export class GenreItemComponent implements OnInit {
   }
 
   setGenreId(): void {
-    console.log(this.dataTransfer.store.getValue())
   }
 }

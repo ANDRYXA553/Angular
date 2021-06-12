@@ -16,3 +16,9 @@ h3{
 .overviewItem{
   margin-left: 10px;
 }
+.rating{
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
