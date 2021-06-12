@@ -1,0 +1,14 @@
+button {
+  cursor: pointer;
+  border: 1px dashed grey;
+
+  margin: 8px 6px;
+
+}
+
+.genresComponent {
+  display: flex;
+  margin: 20px;
+  flex-wrap: wrap;
+
+}

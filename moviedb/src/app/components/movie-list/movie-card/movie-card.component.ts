@@ -15,9 +15,10 @@ export class MovieCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieItem= {...this.movieItem,
-      backdrop_path:`${this.posterUrl}${this.movieItem.backdrop_path}`,
-      poster_path:`${this.posterUrl}${this.movieItem.poster_path}`
+    this.movieItem = {
+      ...this.movieItem,
+      backdrop_path: `${this.posterUrl}${this.movieItem.backdrop_path}`,
+      poster_path: `${this.posterUrl}${this.movieItem.poster_path}`
     }
 
   }

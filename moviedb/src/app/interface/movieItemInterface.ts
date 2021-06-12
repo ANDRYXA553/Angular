@@ -1,6 +1,9 @@
+import {GenreInterface} from "./genreInterface";
+
 export interface MovieItemInterface{
   adult: boolean
   backdrop_path: string
+  genres:[GenreInterface]
   genre_ids: any
   id: number
   original_language: string

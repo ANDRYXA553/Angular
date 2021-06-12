@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="movieItem">
 
   <div class="movieItem">
     <a routerLink="/{{movieItem.id}}">
@@ -6,8 +6,13 @@
     </a>
 
     <div><h3>{{movieItem.title}}</h3>
+      <div class="movieGenre">
+        <span>GENRES:</span> <h4 *ngFor="let genre of movieItem.genres">{{genre.name}}</h4></div>
       <div class="overviewItem">{{movieItem.overview}}</div>
-      <h3>{{movieItem.vote_average}}</h3></div>
+      <h3>{{movieItem.vote_average}}</h3>
+
+    </div>
+
   </div>
 
 </div>

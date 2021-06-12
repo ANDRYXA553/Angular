@@ -2,7 +2,8 @@ img {
   width: 200px;
   height: 200px;
 }
-.movieItem{
+
+.movieItem {
   display: flex;
   border: 1px dashed grey;
   padding: 10px;
@@ -10,9 +11,19 @@ img {
 
   background-color: whitesmoke;
 }
-h3{
+
+h3 {
   margin-left: 10px;
 }
-.overviewItem{
+
+.overviewItem {
   margin-left: 10px;
+}
+h4{
+  margin-left: 5px;
+}
+.movieGenre {
+  display: flex;
+  margin: 10px ;
+
 }
