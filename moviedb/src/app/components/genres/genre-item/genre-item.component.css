@@ -1,9 +1,10 @@
 button {
   cursor: pointer;
-  border: 1px dashed grey;
-
+  background-color: #404040;
+  color: white;
   margin: 8px 6px;
-
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .genresComponent {
