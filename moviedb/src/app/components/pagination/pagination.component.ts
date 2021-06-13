@@ -1,6 +1,5 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Observable} from "rxjs";
+import {Component,  OnInit} from '@angular/core';
+import {Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-pagination',
@@ -11,16 +10,13 @@ export class PaginationComponent implements OnInit {
 
   page = 1
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-
+  constructor(private router: Router) {
   }
-
 
   ngOnInit(): void {
     const queryParams: Params = {page: this.page};
     this.router.navigate([''], {queryParams: queryParams})
   }
-
   changePage(number: number) {
     if (!(this.page < 1)) {
       this.page = (this.page + number)
