@@ -2,5 +2,14 @@
 *{
   margin: 0;
   padding: 0;
+}
+/*.mainContainer{*/
+/*  background-color: black;*/
+/*}*/
 
+.dark{
+   background-color:black;
+}
+.grey{
+  background-color: grey;
 }

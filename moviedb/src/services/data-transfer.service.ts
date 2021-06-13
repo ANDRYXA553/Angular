@@ -8,7 +8,7 @@ export class DataTransferService {
 
   store = new BehaviorSubject(
     {
-      genreId: <number>0
+      genreId:0
     })
 
   constructor() {

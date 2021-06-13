@@ -57,14 +57,14 @@ export class IndexService {
     })
   }
 
-  // getMoviesByGenre(genre_id: number): Observable<any> {
-  //   return this.httpClient.get(this.genreUrl, {
-  //     params: {
-  //       api_key: this.apiKey,
-  //       language: 'en_US',
-  //       page: 1,
-  //       with_genres: genre_id
-  //     }
-  //   })
-  // }
+  getMoviesByGenre(genre_id: number): Observable<DataInterface> {
+    return this.httpClient.get<DataInterface>(this.moviesUrl, {
+      params: {
+        api_key: this.apiKey,
+        language: 'en_US',
+        page: 1,
+        with_genres: genre_id
+      }
+    })
+  }
 }

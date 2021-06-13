@@ -1,0 +1,4 @@
+<div class="moviesContainer mainContainer">
+  <app-genres></app-genres>
+  <app-movie-card *ngFor="let movieItemByGernre of moviesByGenre" [movieItem]="movieItemByGernre"></app-movie-card>
+</div>

@@ -5,3 +5,8 @@
   margin: 20px;
   flex-wrap: wrap;
 }
+hr{
+  background-color: white;
+  height: 3px;
+
+}

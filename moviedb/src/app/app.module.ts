@@ -13,12 +13,14 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import {RatingModule} from "ngx-bootstrap/rating";
 import {NgbRating, NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MoviesByGenreComponent } from './components/genres/movies-by-genre/movies-by-genre.component';
 
 
 
 const routes: Routes = [
-  {path: 'home',component:MainContainerComponent},
+  {path: '',component:MainContainerComponent},
   {path: ':id', component: MovieDetailsComponent},
+  {path: 'genre/:id', component: MoviesByGenreComponent},
 
 ]
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     GenreItemComponent,
     MovieDetailsComponent,
     MainContainerComponent,
+    MoviesByGenreComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule, NgbModule,NgbRatingModule

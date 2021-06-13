@@ -1,12 +1,25 @@
-.header{
+.header {
   display: flex;
-  background-color: darkgray;
   height: 50px;
   margin-bottom: 20px;
   align-items: center;
+  color: lightgrey;
+  justify-content: space-between;
 }
 
-h4{
+input {
   cursor: pointer;
-margin-left: 20px ;
 }
+
+h4 {
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.form-check {
+  margin-right: 20px;
+}
+hr{
+  background-color: white;
+}
+

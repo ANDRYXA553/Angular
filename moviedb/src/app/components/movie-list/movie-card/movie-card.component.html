@@ -23,6 +23,7 @@
         <a routerLink="/{{movieItem.id}}"><img [src]="movieItem.poster_path" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <h5 class="card-title">{{movieItem.title}}</h5>
+<!--          <span>GENRES:</span> <h4 *ngFor="let genre of movieItem.genres">{{genre.name}}</h4></div>-->
           <div class="rating"><h3>{{movieItem.vote_average}}</h3>
             <ngb-rating style="color: orange;font-size: 25px " [readonly]="true" [(rate)]="rating"></ngb-rating>
           </div>

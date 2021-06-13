@@ -1,0 +1,6 @@
+.moviesContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap:20px ;
+}
