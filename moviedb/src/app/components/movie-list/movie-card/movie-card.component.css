@@ -69,4 +69,8 @@ body {
 }
 .card{
   height: 840px;
+
+}
+.container{
+  display: flex;
 }

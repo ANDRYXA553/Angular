@@ -24,9 +24,9 @@ export class MovieDetailsComponent implements OnInit {
         this.movieItem = {
           ...this.movieItem,
           backdrop_path: `${this.posterUrl}${this.movieItem.backdrop_path}`,
-          poster_path: `${this.posterUrl}${this.movieItem.poster_path}`
-        }
+          poster_path: `${this.posterUrl}${this.movieItem.poster_path}`}
       })
+
     })
 
   }

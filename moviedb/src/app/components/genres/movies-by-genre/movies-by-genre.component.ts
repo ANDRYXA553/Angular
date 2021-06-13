@@ -15,7 +15,6 @@ export class MoviesByGenreComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private IndexService: IndexService) {
     this.activatedRoute.params.subscribe(value => {
       this.genreId = +value.id
-      console.log(this.genreId)
       this.IndexService.getMoviesByGenre(this.genreId).subscribe(value => {
         this.moviesByGenre = value.results
       })
