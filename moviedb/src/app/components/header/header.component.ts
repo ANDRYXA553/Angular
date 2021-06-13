@@ -11,25 +11,28 @@ export class HeaderComponent implements OnInit {
 
   themeName = 'Black'
 
-  themeColor=window.localStorage.getItem('ColorBlack')
+  themeColor: any = (window.localStorage.getItem('ColorBlack'))
 
   constructor() {
   }
 
   ngOnInit(): void {
+
   }
 
-  themeChanger(target:any) {
-    if (target.checked) {
+
+  themeChanger({checked}: any) {
+    console.log(checked)
+    if (!checked) {
       document.body.classList.remove('black')
       document.body.classList.add('grey')
-      this.themeName='Grey'
-      window.localStorage.setItem('ColorBlack','false')
+      this.themeName = 'Grey'
+      window.localStorage.setItem('ColorBlack', 'false')
     } else {
       document.body.classList.remove('grey')
       document.body.classList.add('black')
-      this.themeName='Black'
-      window.localStorage.setItem('ColorBlack','true')
+      this.themeName = 'Black'
+      window.localStorage.setItem('ColorBlack', 'true')
     }
   }
 

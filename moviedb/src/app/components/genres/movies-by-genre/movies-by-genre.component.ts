@@ -14,7 +14,10 @@ export class MoviesByGenreComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private IndexService: IndexService) {
     this.activatedRoute.params.subscribe(value => {
+      //SET GENRE ID
       this.genreId = +value.id
+
+      //SET MOVIE FILTERED BY GENRE
       this.IndexService.getMoviesByGenre(this.genreId).subscribe(value => {
         this.moviesByGenre = value.results
       })
@@ -22,7 +25,6 @@ export class MoviesByGenreComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
 }

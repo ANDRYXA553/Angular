@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IndexService} from "../../../services/index.service";
 import {GenreInterface} from "../../interface/genreInterface";
-import {DataTransferService} from "../../../services/data-transfer.service";
 
 @Component({
   selector: 'app-genres',

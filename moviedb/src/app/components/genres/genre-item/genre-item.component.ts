@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component,  Input, OnInit} from '@angular/core';
 import {GenreInterface} from "../../../interface/genreInterface";
 import {DataTransferService} from "../../../../services/data-transfer.service";
 import {IndexService} from "../../../../services/index.service";
@@ -13,19 +13,14 @@ export class GenreItemComponent implements OnInit {
   @Input()
   genre: GenreInterface
 
-
   constructor(private dataTransfer: DataTransferService, private indexService: IndexService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.indexService.getMoviesByGenre(this.genre.id).subscribe(value => {
-
-    })
-
   }
 
-  goToGenre(): void {
 
+  goToGenre(): void {
     if (this.router.url == '/') {
       this.router.navigate(['genre', this.genre.id], {relativeTo: this.activatedRoute, state: this.genre})
     } else {

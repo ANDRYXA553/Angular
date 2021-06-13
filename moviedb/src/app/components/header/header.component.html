@@ -2,7 +2,7 @@
 <div class="header mainContainer">
   <h4 routerLink="">HOME</h4>
   <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" [checked]="!themeColor" (change)="themeChanger($event.target)"  id="flexSwitchCheckDefault">
+    <input ngModel class="form-check-input" type="checkbox" [checked]="themeColor" (change)="themeChanger($event.target)"  id="flexSwitchCheckDefault">
     <label class="form-check-label" for="flexSwitchCheckDefault">{{themeName}}</label>
   </div>
 </div>

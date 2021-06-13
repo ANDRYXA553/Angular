@@ -16,6 +16,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MoviesByGenreComponent} from './components/genres/movies-by-genre/movies-by-genre.component';
 import {YouTubePlayerModule} from "@angular/youtube-player";
 import { PaginationComponent } from './components/pagination/pagination.component';
+import {FormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -40,7 +41,7 @@ const routes: Routes = [
     PaginationComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule, NgbModule, NgbRatingModule, YouTubePlayerModule
+    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule, NgbModule, NgbRatingModule, YouTubePlayerModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
