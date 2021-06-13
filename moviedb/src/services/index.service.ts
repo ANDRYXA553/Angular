@@ -1,10 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-import {Observable, Observer} from "rxjs";
+import {Observable} from "rxjs";
 import {MovieItemInterface} from "../app/interface/movieItemInterface";
 import {DataInterface} from "../app/interface/dataInterface";
-import {GenreInterface} from "../app/interface/genreInterface";
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +21,14 @@ export class IndexService {
 
 
   constructor(private httpClient: HttpClient) {
-    console.log(this.genreUrl)
   }
 
-  getMovies(): Observable<DataInterface> {
+  getMovies(page:number): Observable<DataInterface> {
     return this.httpClient.get<DataInterface>(this.moviesUrl, {
       params: {
         api_key: this.apiKey,
         language: 'en_US',
-        page: 1
+        page: page
       }
     })
   }
@@ -64,6 +61,15 @@ export class IndexService {
         language: 'en_US',
         page: 1,
         with_genres: genre_id
+      }
+    })
+  }
+  getVideoOfMovie(movie_id: number):Observable<any>{
+    return this.httpClient.get(`${this.movieUrl}/${movie_id}/videos`, {
+      params: {
+        api_key: this.apiKey,
+        language: 'en_US',
+
       }
     })
   }

@@ -17,26 +17,22 @@
 
 <!--  </div>-->
 
-<!--</div>-->
 
 
 <div *ngIf="movieItem" class="container ">
-<!--  <div class="row">-->
-<!--    <div class="col-md-4">-->
-      <div class="card" >
-        <a routerLink="/{{movieItem.id}}"><img [src]="movieItem.poster_path" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <h5 class="card-title">{{movieItem.title}}</h5>
-          <div class="movieGenre">
-            <span>Release Date:</span> <h4>{{movieItem.release_date}}</h4>
-            <span>GENRES:</span> <h4 *ngFor="let genre of movieItem.genres">{{genre.name}}</h4></div>
-          <div class="rating"><h3>{{movieItem.vote_average}}</h3>
-            <ngb-rating style="color: orange;font-size: 25px " [readonly]="true" [(rate)]="rating"></ngb-rating>
-          </div>
-          <p class="card-text"> {{movieItem.overview}}</p>
-
-        </div>
+  <div class="card">
+    <a routerLink="/{{movieItem.id}}"><img [src]="movieItem.poster_path" class="card-img-top" alt="..."></a>
+    <div class="card-body">
+      <h5 class="card-title">{{movieItem.title}}</h5>
+      <div class="movieGenre">
+        <span>Release Date:</span> <h4>{{movieItem.release_date}}</h4>
+        <span>GENRES:</span> <h4 *ngFor="let genre of movieItem.genres">{{genre.name}}</h4></div>
+      <div class="rating"><h3>{{movieItem.vote_average}}</h3>
+        <ngb-rating style="color: orange;font-size: 25px " [readonly]="true" [(rate)]="rating"></ngb-rating>
       </div>
+      <p class="card-text"> {{movieItem.overview}}</p>
+      <youtube-player [videoId]="trailerID" [width]="600" [height]="300"></youtube-player>
     </div>
-<!--  </div>-->
-<!--</div>-->
+  </div>
+</div>
+

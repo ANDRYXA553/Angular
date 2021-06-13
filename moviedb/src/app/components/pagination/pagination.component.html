@@ -1,0 +1,10 @@
+<div class="paginationContainer">
+  <button (click)="changePage(-2)"><<</button>
+  <button (click)="changePage(-1)"><</button>
+  <div style="color: white ;align-items: center">
+    <input name="PageNumber" [value]="page" (change)="changePageFromInput($event)"/>
+  </div>
+  <button (click)="changePage(1)">></button>
+  <button (click)="changePage(2)">>></button>
+</div>
+
