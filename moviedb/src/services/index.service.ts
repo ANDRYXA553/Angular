@@ -26,7 +26,7 @@ export class IndexService {
   getMovies(page:number): Observable<DataInterface> {
     return this.httpClient.get<DataInterface>(this.moviesUrl, {
       params: {
-        api_key: this.apiKey,
+        // api_key: this.apiKey,
         language: 'en_US',
         page: page
       }
@@ -36,7 +36,7 @@ export class IndexService {
   getGenres(): Observable<any> {
     return this.httpClient.get(this.genreUrl, {
       params: {
-        api_key: this.apiKey,
+        // api_key: this.apiKey,
         language: 'en_US',
         page: 1
       }
@@ -47,7 +47,7 @@ export class IndexService {
 
     return this.httpClient.get<MovieItemInterface>(`${this.movieUrl}/${id}`, {
       params: {
-        api_key: this.apiKey,
+        // api_key: this.apiKey,
         language: 'en_US',
         page: 1
       }
@@ -57,7 +57,7 @@ export class IndexService {
   getMoviesByGenre(genre_id: number): Observable<DataInterface> {
     return this.httpClient.get<DataInterface>(this.moviesUrl, {
       params: {
-        api_key: this.apiKey,
+        // api_key: this.apiKey,
         language: 'en_US',
         page: 1,
         with_genres: genre_id
@@ -67,7 +67,7 @@ export class IndexService {
   getVideoOfMovie(movie_id: number):Observable<any>{
     return this.httpClient.get(`${this.movieUrl}/${movie_id}/videos`, {
       params: {
-        api_key: this.apiKey,
+        // api_key: this.apiKey,
         language: 'en_US',
 
       }

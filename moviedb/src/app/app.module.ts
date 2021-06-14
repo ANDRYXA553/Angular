@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MovieListComponent} from './components/movie-list/movie-list.component';
 import {MovieCardComponent} from './components/movie-list/movie-card/movie-card.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -17,6 +17,7 @@ import {MoviesByGenreComponent} from './components/genres/movies-by-genre/movies
 import {YouTubePlayerModule} from "@angular/youtube-player";
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {FormsModule} from "@angular/forms";
+import {InterceptorService} from "../services/interceptor.service";
 
 
 const routes: Routes = [
@@ -43,7 +44,13 @@ const routes: Routes = [
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes), RatingModule, NgbModule, NgbRatingModule, YouTubePlayerModule, FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:InterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
