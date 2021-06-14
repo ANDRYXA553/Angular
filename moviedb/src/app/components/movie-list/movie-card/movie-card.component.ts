@@ -7,7 +7,9 @@ import {MovieItemInterface} from "../../../interface/movieItemInterface";
   styleUrls: ['./movie-card.component.css']
 })
 export class MovieCardComponent implements OnInit {
+
   posterUrl = 'https://image.tmdb.org/t/p/original/'
+
   @Input()
   movieItem: MovieItemInterface
   rating:number

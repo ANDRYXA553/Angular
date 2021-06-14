@@ -1,4 +1,7 @@
-<div class="moviesContainer mainContainer">
+<div>
   <app-genres></app-genres>
-  <app-movie-card *ngFor="let movieItemByGenre of moviesByGenre" [movieItem]="movieItemByGenre"></app-movie-card>
+  <app-pagination></app-pagination>
+  <div class="moviesContainer">
+    <app-movie-card *ngFor="let movieItemByGenre of moviesByGenre" [movieItem]="movieItemByGenre"></app-movie-card>
+  </div>
 </div>

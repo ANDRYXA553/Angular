@@ -13,18 +13,23 @@ export class MovieListComponent implements OnInit {
 
   movieList: [MovieItemInterface]
 
-  constructor(private indexService: IndexService, private activatedRoute: ActivatedRoute) {
+  constructor(private indexService: IndexService, private activatedRoute: ActivatedRoute, private dataTransfer: DataTransferService) {
+
     activatedRoute.queryParams.subscribe(value => {
+      //SET CURRENT PAGE IN DATA TRANSFER
       this.indexService.getMovies(value.page).subscribe(value => {
+        this.dataTransfer.store.next({
+          totalPages: value.total_pages,
+          currentPage: dataTransfer.store.getValue().currentPage
+        })
+        //SET MOVIES TO ARR
         this.movieList = value.results
-        console.log(value)
 
       })
     })
   }
 
   ngOnInit(): void {
-
 
 
   }

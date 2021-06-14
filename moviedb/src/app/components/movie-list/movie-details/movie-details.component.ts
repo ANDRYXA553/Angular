@@ -13,7 +13,7 @@ export class MovieDetailsComponent implements OnInit {
   posterUrl = 'https://image.tmdb.org/t/p/original/'
   movieItem: MovieItemInterface
   rating: number
-  trailerID:any
+  trailerID:string
 
   constructor(private indexService: IndexService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(value => {

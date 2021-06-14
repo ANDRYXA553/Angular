@@ -20,13 +20,12 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  themeChanger(target: any) {
+  themeChanger(target: any):void {
     if (target.checked) {
       document.body.classList.remove('black')
       document.body.classList.add('grey')
       this.themeName = 'Grey'
 
-      // window.localStorage.setItem('ColorBlack', 'false')
     } else {
       document.body.classList.remove('grey')
       document.body.classList.add('black')

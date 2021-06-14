@@ -1,5 +1,6 @@
-import {Component,  OnInit} from '@angular/core';
-import {Params, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {DataTransferService} from "../../../services/data-transfer.service";
 
 @Component({
   selector: 'app-pagination',
@@ -9,27 +10,64 @@ import {Params, Router} from "@angular/router";
 export class PaginationComponent implements OnInit {
 
   page = 1
+  totalPages = 1
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dataTransfer: DataTransferService, private activatedRoute: ActivatedRoute) {
+
+    this.activatedRoute.queryParams.subscribe(value => {
+       ///SET PAGE FROM URL
+      console.log(router.url)
+      console.log(this.activatedRoute.fragment);
+      if(router.url.includes('genre')){
+        this.page = +value.page
+        const queryParams: Params = {page: value.page};
+        this.router.navigate([this.router.url], {queryParams: queryParams})
+        this.dataTransfer.store.subscribe(value => {
+          this.totalPages = value.totalPages
+        })
+      }else {
+        this.page = +value.page
+        const queryParams: Params = {page: value.page};
+        this.router.navigate(['/'], {queryParams: queryParams})
+        this.dataTransfer.store.subscribe(value => {
+          this.totalPages = value.totalPages
+        })
+
+      }
+
+    })
+
   }
 
   ngOnInit(): void {
-    const queryParams: Params = {page: this.page};
-    this.router.navigate([''], {queryParams: queryParams})
+
   }
+
+
   changePage(number: number) {
     if (!(this.page < 1)) {
       this.page = (this.page + number)
+      this.dataTransfer.store.next({currentPage: this.page, totalPages: this.totalPages})
       const queryParams: Params = {page: this.page};
-      this.router.navigate([''], {queryParams: queryParams})
+      console.log(this.router.url)
+      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
     } else {
-      this.page = 100
+      this.page = this.totalPages
     }
   }
 
   changePageFromInput({target}: any) {
-    this.page = +target.value
-    const queryParams: Params = {page: this.page};
-    this.router.navigate([''], {queryParams: queryParams})
+    if (+target.value > this.totalPages) {
+      target.value = this.totalPages
+      this.page = +target.value
+      const queryParams: Params = {page: this.page};
+      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
+
+    } else {
+      this.page = +target.value
+      const queryParams: Params = {page: this.page};
+      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
+    }
+
   }
 }

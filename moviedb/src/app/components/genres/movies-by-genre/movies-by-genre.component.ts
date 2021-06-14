@@ -13,6 +13,8 @@ export class MoviesByGenreComponent implements OnInit {
   genreId: number
 
   constructor(private activatedRoute: ActivatedRoute, private IndexService: IndexService) {
+
+
     this.activatedRoute.params.subscribe(value => {
       //SET GENRE ID
       this.genreId = +value.id
