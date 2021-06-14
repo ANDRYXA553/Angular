@@ -17,11 +17,14 @@ export class MovieListComponent implements OnInit {
 
     activatedRoute.queryParams.subscribe(value => {
       //SET CURRENT PAGE IN DATA TRANSFER
+
       this.indexService.getMovies(value.page).subscribe(value => {
         this.dataTransfer.store.next({
+          ...this.dataTransfer.store.getValue(),
           totalPages: value.total_pages,
           currentPage: dataTransfer.store.getValue().currentPage
         })
+
         //SET MOVIES TO ARR
         this.movieList = value.results
 

@@ -1,5 +1,6 @@
 <div>
   <app-genres></app-genres>
+<div class="FilteredBy">Filtered by: {{genreName}}</div>
   <app-pagination></app-pagination>
   <div class="moviesContainer">
     <app-movie-card *ngFor="let movieItemByGenre of moviesByGenre" [movieItem]="movieItemByGenre"></app-movie-card>

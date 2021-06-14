@@ -9,7 +9,8 @@ export class DataTransferService {
   store = new BehaviorSubject(
     {
       currentPage:1,
-      totalPages:1
+      totalPages:1,
+      genreName:''
     })
 
   constructor() {

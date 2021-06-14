@@ -4,3 +4,10 @@
   justify-content: center;
   column-gap:20px ;
 }
+.FilteredBy{
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}

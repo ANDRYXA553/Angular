@@ -15,10 +15,11 @@ export class PaginationComponent implements OnInit {
   constructor(private router: Router, private dataTransfer: DataTransferService, private activatedRoute: ActivatedRoute) {
 
     this.activatedRoute.queryParams.subscribe(value => {
+
       ///SET PAGE FROM URL
       this.page = +value?.page
       const queryParams: Params = {page: value.page};
-      this.router.navigate([], {relativeTo:activatedRoute,queryParams: queryParams})
+      this.router.navigate([], {relativeTo: activatedRoute, queryParams: queryParams})
       this.dataTransfer.store.subscribe(value => {
         this.totalPages = value.totalPages
       })
@@ -28,17 +29,21 @@ export class PaginationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate([], {relativeTo:this.activatedRoute,queryParams: {page: 1}})
+    this.router.navigate([], {relativeTo: this.activatedRoute, queryParams: {page: 1}})
   }
 
-  changePage(number: number) {
-    if (!(this.page < 1)) {
-      this.page = (this.page + number)
-      this.dataTransfer.store.next({currentPage: this.page, totalPages: this.totalPages})
-      const queryParams: Params = {page: this.page};
+//CHANGE PAGE FROM BUTTON
 
-      this.router.navigate([], {relativeTo:this.activatedRoute,queryParams: queryParams})
-      console.log(this.dataTransfer.store.getValue())
+  changePage(number: number) {
+
+    if (!(this.page < 1 && this.page<this.totalPages) ) {
+        this.page = (this.page + number)
+        this.dataTransfer.store.next({...this.dataTransfer.store.getValue(),currentPage: this.page, totalPages: this.totalPages})
+        const queryParams: Params = {page: this.page};
+
+        this.router.navigate([], {relativeTo: this.activatedRoute, queryParams: queryParams})
+
+
     } else {
       this.page = this.totalPages
     }
@@ -46,17 +51,23 @@ export class PaginationComponent implements OnInit {
 
   }
 
+//CHANGE PAGE FROM INPUT
   changePageFromInput({target}: any) {
+
     if (+target.value > this.totalPages) {
       target.value = this.totalPages
       this.page = +target.value
       const queryParams: Params = {page: this.page};
-      this.router.navigate(['/'], {queryParams: queryParams})
+      this.dataTransfer.store.next({...this.dataTransfer.store.getValue(),currentPage: this.page, totalPages: this.totalPages})
+
+      this.router.navigate([], {queryParams: queryParams})
 
     } else {
+
       this.page = +target.value
+      this.dataTransfer.store.next({...this.dataTransfer.store.getValue(),currentPage: this.page, totalPages: this.totalPages})
       const queryParams: Params = {page: this.page};
-      this.router.navigate(['/'], {queryParams: queryParams})
+      this.router.navigate([], {queryParams: queryParams})
     }
 
   }

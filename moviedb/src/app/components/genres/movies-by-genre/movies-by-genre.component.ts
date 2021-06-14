@@ -13,6 +13,7 @@ import {LogicalFileSystem} from "@angular/compiler-cli/src/ngtsc/file_system";
 export class MoviesByGenreComponent implements OnInit {
   moviesByGenre: MovieItemInterface[]
   genreId: number
+  genreName:string
 
   constructor(private activatedRoute: ActivatedRoute, private IndexService: IndexService, private dataTransfer: DataTransferService) {
 
@@ -30,9 +31,12 @@ export class MoviesByGenreComponent implements OnInit {
 
         //SET MOVIE FILTERED BY GENRE
         this.IndexService.getMoviesByGenre(this.genreId, page).subscribe(value => {
-          dataTransfer.store.next({currentPage: value1.page, totalPages: value.total_pages})
-          console.log(value);
+          dataTransfer.store.next({...this.dataTransfer.store.getValue(),currentPage: value1.page, totalPages: value.total_pages})
           this.moviesByGenre = value.results
+         dataTransfer.store.subscribe(value=>{
+           this.genreName =value.genreName
+         })
+
         })
 
       })
