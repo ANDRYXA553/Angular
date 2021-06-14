@@ -23,8 +23,7 @@ const routes: Routes = [
   {path: '', component: MainContainerComponent,},
   {path: ':id', component: MovieDetailsComponent},
   {path: 'genre/:id', component: MoviesByGenreComponent},
-  {path: 'genre/:id/?page:id', component: MoviesByGenreComponent},
-  {path: '?page:id', component: MainContainerComponent},
+  // {path: '?page:id', component: MainContainerComponent},
 
 ]
 

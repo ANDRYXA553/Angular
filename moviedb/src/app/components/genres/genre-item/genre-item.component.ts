@@ -1,4 +1,4 @@
-import {Component,  Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GenreInterface} from "../../../interface/genreInterface";
 import {DataTransferService} from "../../../../services/data-transfer.service";
 import {IndexService} from "../../../../services/index.service";

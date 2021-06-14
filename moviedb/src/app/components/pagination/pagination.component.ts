@@ -15,45 +15,35 @@ export class PaginationComponent implements OnInit {
   constructor(private router: Router, private dataTransfer: DataTransferService, private activatedRoute: ActivatedRoute) {
 
     this.activatedRoute.queryParams.subscribe(value => {
-       ///SET PAGE FROM URL
-      console.log(router.url)
-      console.log(this.activatedRoute.fragment);
-      if(router.url.includes('genre')){
-        this.page = +value.page
-        const queryParams: Params = {page: value.page};
-        this.router.navigate([this.router.url], {queryParams: queryParams})
-        this.dataTransfer.store.subscribe(value => {
-          this.totalPages = value.totalPages
-        })
-      }else {
-        this.page = +value.page
-        const queryParams: Params = {page: value.page};
-        this.router.navigate(['/'], {queryParams: queryParams})
-        this.dataTransfer.store.subscribe(value => {
-          this.totalPages = value.totalPages
-        })
-
-      }
+      ///SET PAGE FROM URL
+      this.page = +value?.page
+      const queryParams: Params = {page: value.page};
+      this.router.navigate(['/'], {queryParams: queryParams})
+      this.dataTransfer.store.subscribe(value => {
+        this.totalPages = value.totalPages
+      })
 
     })
 
   }
 
   ngOnInit(): void {
-
+    this.router.navigate(['/'], {queryParams: {page: 1}})
   }
-
 
   changePage(number: number) {
     if (!(this.page < 1)) {
       this.page = (this.page + number)
       this.dataTransfer.store.next({currentPage: this.page, totalPages: this.totalPages})
       const queryParams: Params = {page: this.page};
-      console.log(this.router.url)
-      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
+
+      this.router.navigate(['/'], {queryParams: queryParams})
+      console.log(this.dataTransfer.store.getValue())
     } else {
       this.page = this.totalPages
     }
+
+
   }
 
   changePageFromInput({target}: any) {
@@ -61,12 +51,12 @@ export class PaginationComponent implements OnInit {
       target.value = this.totalPages
       this.page = +target.value
       const queryParams: Params = {page: this.page};
-      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
+      this.router.navigate(['/'], {queryParams: queryParams})
 
     } else {
       this.page = +target.value
       const queryParams: Params = {page: this.page};
-      this.router.navigate([this.router.url], {relativeTo: this.activatedRoute, queryParams: queryParams})
+      this.router.navigate(['/'], {queryParams: queryParams})
     }
 
   }
