@@ -18,7 +18,7 @@ export class PaginationComponent implements OnInit {
       ///SET PAGE FROM URL
       this.page = +value?.page
       const queryParams: Params = {page: value.page};
-      this.router.navigate(['/'], {queryParams: queryParams})
+      this.router.navigate([], {relativeTo:activatedRoute,queryParams: queryParams})
       this.dataTransfer.store.subscribe(value => {
         this.totalPages = value.totalPages
       })
@@ -28,7 +28,7 @@ export class PaginationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['/'], {queryParams: {page: 1}})
+    this.router.navigate([], {relativeTo:this.activatedRoute,queryParams: {page: 1}})
   }
 
   changePage(number: number) {
@@ -37,7 +37,7 @@ export class PaginationComponent implements OnInit {
       this.dataTransfer.store.next({currentPage: this.page, totalPages: this.totalPages})
       const queryParams: Params = {page: this.page};
 
-      this.router.navigate(['/'], {queryParams: queryParams})
+      this.router.navigate([], {relativeTo:this.activatedRoute,queryParams: queryParams})
       console.log(this.dataTransfer.store.getValue())
     } else {
       this.page = this.totalPages

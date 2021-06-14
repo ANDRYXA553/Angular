@@ -21,10 +21,10 @@ export class GenreItemComponent implements OnInit {
 
 
   goToGenre(): void {
-    if (this.router.url === '/') {
-      this.router.navigate(['genre', this.genre.id], {relativeTo: this.activatedRoute, state: this.genre})
+    if (this.router.url === '/' && this.router.url.includes('page')) {
+      this.router.navigate(['genre', this.genre.id], {relativeTo: this.activatedRoute, state: this.genre })
     } else {
-      this.router.navigate(['genre', this.genre.id], {state: this.genre})
+      this.router.navigate(['genre', this.genre.id], {state: this.genre,queryParams:{page:1}})
     }
 
   }

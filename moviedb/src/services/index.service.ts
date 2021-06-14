@@ -54,12 +54,12 @@ export class IndexService {
     })
   }
 
-  getMoviesByGenre(genre_id: number): Observable<DataInterface> {
+  getMoviesByGenre(genre_id: number,page:number): Observable<DataInterface> {
     return this.httpClient.get<DataInterface>(this.moviesUrl, {
       params: {
         // api_key: this.apiKey,
         language: 'en_US',
-        page: 1,
+        page: page,
         with_genres: genre_id
       }
     })
